@@ -1,32 +1,31 @@
-# Ad Infinitum ClubApp – Phase 2 Starter
+# Ad Infinitum ClubApp – Phase 2 v0.2
 
-Das ist der Start für die echte, zentrale Vereins-App.
+Echte App-Struktur mit getrenntem Frontend und Backend.
 
-## Ziel
+## Neu
+- Backend sauber aufgeteilt in Routen
+- Login mit JWT
+- Middleware für Login/Admin
+- Getränke kaufen über API
+- Admin kann Guthaben aufladen
+- Frontend mit Mitglieder- und Adminansicht
 
-Aus dem bisherigen Frontend-Prototyp wird eine echte App mit:
+## Start
 
-- zentraler Datenbank
-- sicherem Login
-- Mitgliedern
-- Guthaben
-- Getränken
-- Adminbereich
-- später: Chat, Touren, Events und QR-Code
-
-## Projektstruktur
-
-```text
-ad-infinitum-phase2-starter/
-├── frontend/   # Benutzeroberfläche
-├── backend/    # Server/API
-├── database/   # Datenbankstruktur
-└── docs/       # Anleitung und Planung
+### Backend
+```bash
+cd backend
+npm install
+npm run dev
 ```
 
-## Nächster Schritt
+### Frontend
+```bash
+cd frontend
+npm install
+npm run dev
+```
 
-1. Projekt bei GitHub hochladen.
-2. Backend vorbereiten.
-3. Datenbank verbinden.
-4. Login und Guthaben produktionsfähig machen.
+Demo:
+- Mitglied: `florian` / `club123`
+- Admin: `admin` / `admin123`

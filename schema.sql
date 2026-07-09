@@ -1,5 +1,3 @@
--- Ad Infinitum ClubApp Database Schema
-
 CREATE TABLE users (
   id SERIAL PRIMARY KEY,
   username TEXT UNIQUE NOT NULL,
@@ -30,16 +28,6 @@ CREATE TABLE bookings (
   drink_id INTEGER REFERENCES drinks(id),
   price_cents INTEGER NOT NULL,
   created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
-);
-
-CREATE TABLE topup_requests (
-  id SERIAL PRIMARY KEY,
-  user_id INTEGER REFERENCES users(id),
-  amount_cents INTEGER NOT NULL,
-  status TEXT NOT NULL DEFAULT 'pending',
-  approved_by INTEGER REFERENCES users(id),
-  created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-  approved_at TIMESTAMP
 );
 
 CREATE TABLE ledger (
