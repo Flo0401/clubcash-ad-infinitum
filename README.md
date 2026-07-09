@@ -1,14 +1,5 @@
-# Ad Infinitum ClubApp – Version 0.6
+# Ad Infinitum ClubApp – Version 0.7
 
-## Neu in 0.6
-- Admin-Statistiken
-- Kassenabschluss-Demo
-- Einkaufsliste/Nachbestellvorschläge
-- Bestandsbalken
-- Event-Erstellung durch Admin
-- Chat-Ankündigungen anheften
-- Tour-Export zu Google Maps
+Neu: Guthaben-Anfragen, Admin-Freigabe, Rangliste, Datenexport.
 
-## Demo-Login
-Mitglied: `florian` / `club123`
-Admin: `admin` / `admin123`
+Demo: florian/club123, admin/admin123
