@@ -1,16 +1,15 @@
-# Ad Infinitum ClubApp – Version 0.3
+# Ad Infinitum ClubApp – Version 0.4
 
-## Neu in 0.3
-- Daten bleiben im Browser gespeichert
-- Touren können gespeichert werden
-- Chat bleibt während der Nutzung gespeichert
-- Profil/Garage kann bearbeitet werden
-- Admin: Guthabenbetrag frei eingeben
-- Admin: Lagerbestand erhöhen
-- Protokoll für Einzahlungen und Käufe
+## Neu in 0.4
+- Event-Bereich mit Zusagen
+- Digitaler Mitgliedsausweis
+- Mitgliederverwaltung im Adminbereich
+- Neue Mitglieder anlegen
+- Tour-Teilnahme
+- Verbesserte Navigation und Profilansicht
 
 ## Demo-Login
 Mitglied: `florian` / `club123`
 Admin: `admin` / `admin123`
 
-Hinweis: Dies ist weiterhin ein Frontend-Prototyp für GitHub Pages. Echte Nutzerkonten und sichere Passwörter folgen mit Backend/Datenbank.
+Hinweis: Diese Version ist ein Frontend-Prototyp für GitHub Pages. Daten werden lokal im Browser gespeichert.
