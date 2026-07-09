@@ -1,0 +1,9 @@
+{
+  "name": "ClubCash – Ad Infinitum",
+  "short_name": "ClubCash",
+  "start_url": "./index.html",
+  "display": "standalone",
+  "background_color": "#050505",
+  "theme_color": "#d6a637",
+  "icons": []
+}

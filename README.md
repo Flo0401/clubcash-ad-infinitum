@@ -1,15 +1,7 @@
 # ClubCash – Ad Infinitum
 
-Eine moderne Vereins-App für den Motorradclub Ad Infinitum.
+Startversion der Vereins-Getränkekasse.
 
-## Geplante Funktionen
-
-- 🔐 Login mit Benutzername und Passwort
-- 💰 Guthabensystem
-- 🍺 Getränkebuchung
-- 📦 Lagerverwaltung
-- 👑 Adminbereich
-- 📊 Statistiken
-- 📱 Installierbar auf iPhone und Android (PWA)
-
-Entwicklung mit Unterstützung von ChatGPT.
+Demo-Login:
+- florian / club123
+- admin / admin123
