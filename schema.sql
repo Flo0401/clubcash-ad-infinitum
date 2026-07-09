@@ -1,0 +1,53 @@
+-- Ad Infinitum ClubApp Database Schema
+
+CREATE TABLE users (
+  id SERIAL PRIMARY KEY,
+  username TEXT UNIQUE NOT NULL,
+  password_hash TEXT NOT NULL,
+  name TEXT NOT NULL,
+  role TEXT NOT NULL DEFAULT 'member',
+  balance_cents INTEGER NOT NULL DEFAULT 0,
+  member_number TEXT UNIQUE,
+  bike TEXT,
+  points INTEGER NOT NULL DEFAULT 0,
+  active BOOLEAN NOT NULL DEFAULT TRUE,
+  created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+CREATE TABLE drinks (
+  id SERIAL PRIMARY KEY,
+  name TEXT NOT NULL,
+  price_cents INTEGER NOT NULL,
+  stock INTEGER NOT NULL DEFAULT 0,
+  min_stock INTEGER NOT NULL DEFAULT 0,
+  emoji TEXT,
+  active BOOLEAN NOT NULL DEFAULT TRUE
+);
+
+CREATE TABLE bookings (
+  id SERIAL PRIMARY KEY,
+  user_id INTEGER REFERENCES users(id),
+  drink_id INTEGER REFERENCES drinks(id),
+  price_cents INTEGER NOT NULL,
+  created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+CREATE TABLE topup_requests (
+  id SERIAL PRIMARY KEY,
+  user_id INTEGER REFERENCES users(id),
+  amount_cents INTEGER NOT NULL,
+  status TEXT NOT NULL DEFAULT 'pending',
+  approved_by INTEGER REFERENCES users(id),
+  created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+  approved_at TIMESTAMP
+);
+
+CREATE TABLE ledger (
+  id SERIAL PRIMARY KEY,
+  user_id INTEGER REFERENCES users(id),
+  type TEXT NOT NULL,
+  amount_cents INTEGER NOT NULL,
+  note TEXT,
+  created_by INTEGER REFERENCES users(id),
+  created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
