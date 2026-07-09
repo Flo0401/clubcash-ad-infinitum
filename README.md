@@ -1,7 +1,18 @@
-# ClubCash – Ad Infinitum
+# Ad Infinitum ClubApp
 
-Startversion der Vereins-Getränkekasse.
+Version 0.2 der Vereins-App.
 
-Demo-Login:
-- florian / club123
-- admin / admin123
+## Enthalten
+- Schwarzes/goldenes Ad-Infinitum-Design
+- Login-Demo
+- ClubCash mit Guthaben und Getränkebuchung
+- Gruppenchat-Demo
+- Tourenplaner-Demo
+- Profil & Garage
+- Adminbereich
+
+## Demo-Login
+Mitglied: `florian` / `club123`
+Admin: `admin` / `admin123`
+
+Diese Version ist ein Frontend-Prototyp für GitHub Pages.

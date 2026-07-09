@@ -1,6 +1,6 @@
 {
-  "name": "ClubCash – Ad Infinitum",
-  "short_name": "ClubCash",
+  "name": "Ad Infinitum ClubApp",
+  "short_name": "Ad Infinitum",
   "start_url": "./index.html",
   "display": "standalone",
   "background_color": "#050505",
