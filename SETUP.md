@@ -1,30 +1,17 @@
-# Setup-Anleitung
+# PostgreSQL Setup
 
-## Voraussetzungen
+`.env`:
+```env
+PORT=4000
+JWT_SECRET=ein-langes-geheimes-passwort
+DATABASE_URL=postgres://USER:PASSWORD@HOST:5432/DATABASE
+FRONTEND_ORIGIN=http://localhost:5173
+```
 
-Auf dem Laptop installieren:
-
-- Node.js
-- Git
-- GitHub Konto
-
-## Backend starten
-
+Danach:
 ```bash
 cd backend
 npm install
+npm run db:setup
 npm run dev
 ```
-
-## Frontend starten
-
-```bash
-cd frontend
-npm install
-npm run dev
-```
-
-## Wichtig
-
-Diese Phase-2-Version ist die Grundlage.
-Die echte Datenbank wird im nächsten Schritt verbunden.

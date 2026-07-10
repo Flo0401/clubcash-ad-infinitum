@@ -1,18 +1,19 @@
-# Ad Infinitum ClubApp – Phase 2 v0.3
+# Ad Infinitum ClubApp – Phase 2 v0.4
 
-## Neu
-- PostgreSQL-Datenbankmodul vorbereitet
-- Backend kann zwischen Demo-Speicher und Datenbank erweitert werden
-- `.env.example` erweitert
-- Datenbank-Setup dokumentiert
-- API-Struktur weiter professionalisiert
+Neu:
+- echtes PostgreSQL-Setup
+- Login aus der Datenbank
+- Getränkekauf als sichere Transaktion
+- Guthabenaufladung mit Kassenprotokoll
+- Buchungshistorie pro Mitglied
 
 ## Start
-
 Backend:
 ```bash
 cd backend
 npm install
+cp .env.example .env
+npm run db:setup
 npm run dev
 ```
 
@@ -22,7 +23,3 @@ cd frontend
 npm install
 npm run dev
 ```
-
-Demo:
-- florian / club123
-- admin / admin123
