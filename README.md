@@ -1,25 +1,22 @@
-# Ad Infinitum ClubApp – Phase 2 v0.2
-
-Echte App-Struktur mit getrenntem Frontend und Backend.
+# Ad Infinitum ClubApp – Phase 2 v0.3
 
 ## Neu
-- Backend sauber aufgeteilt in Routen
-- Login mit JWT
-- Middleware für Login/Admin
-- Getränke kaufen über API
-- Admin kann Guthaben aufladen
-- Frontend mit Mitglieder- und Adminansicht
+- PostgreSQL-Datenbankmodul vorbereitet
+- Backend kann zwischen Demo-Speicher und Datenbank erweitert werden
+- `.env.example` erweitert
+- Datenbank-Setup dokumentiert
+- API-Struktur weiter professionalisiert
 
 ## Start
 
-### Backend
+Backend:
 ```bash
 cd backend
 npm install
 npm run dev
 ```
 
-### Frontend
+Frontend:
 ```bash
 cd frontend
 npm install
@@ -27,5 +24,5 @@ npm run dev
 ```
 
 Demo:
-- Mitglied: `florian` / `club123`
-- Admin: `admin` / `admin123`
+- florian / club123
+- admin / admin123

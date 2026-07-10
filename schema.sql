@@ -1,4 +1,4 @@
-CREATE TABLE users (
+CREATE TABLE IF NOT EXISTS users (
   id SERIAL PRIMARY KEY,
   username TEXT UNIQUE NOT NULL,
   password_hash TEXT NOT NULL,
@@ -12,25 +12,27 @@ CREATE TABLE users (
   created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 
-CREATE TABLE drinks (
+CREATE TABLE IF NOT EXISTS drinks (
   id SERIAL PRIMARY KEY,
   name TEXT NOT NULL,
   price_cents INTEGER NOT NULL,
   stock INTEGER NOT NULL DEFAULT 0,
   min_stock INTEGER NOT NULL DEFAULT 0,
   emoji TEXT,
+  sold INTEGER NOT NULL DEFAULT 0,
   active BOOLEAN NOT NULL DEFAULT TRUE
 );
 
-CREATE TABLE bookings (
+CREATE TABLE IF NOT EXISTS bookings (
   id SERIAL PRIMARY KEY,
   user_id INTEGER REFERENCES users(id),
   drink_id INTEGER REFERENCES drinks(id),
+  drink_name TEXT NOT NULL,
   price_cents INTEGER NOT NULL,
   created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 
-CREATE TABLE ledger (
+CREATE TABLE IF NOT EXISTS ledger (
   id SERIAL PRIMARY KEY,
   user_id INTEGER REFERENCES users(id),
   type TEXT NOT NULL,
@@ -38,4 +40,14 @@ CREATE TABLE ledger (
   note TEXT,
   created_by INTEGER REFERENCES users(id),
   created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+CREATE TABLE IF NOT EXISTS topup_requests (
+  id SERIAL PRIMARY KEY,
+  user_id INTEGER REFERENCES users(id),
+  amount_cents INTEGER NOT NULL,
+  status TEXT NOT NULL DEFAULT 'pending',
+  approved_by INTEGER REFERENCES users(id),
+  created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+  approved_at TIMESTAMP
 );
