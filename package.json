@@ -1,11 +1,11 @@
 {
   "name": "ad-infinitum-backend",
-  "version": "0.4.0",
+  "version": "0.5.0",
   "type": "module",
   "scripts": {
     "dev": "node src/server.js",
     "start": "node src/server.js",
-    "db:setup": "node src/scripts/setup-db.js"
+    "db:setup": "node src/setup.js"
   },
   "dependencies": {
     "bcryptjs": "^2.4.3",

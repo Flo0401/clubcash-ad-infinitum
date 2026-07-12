@@ -1,25 +1,14 @@
-# Ad Infinitum ClubApp – Phase 2 v0.4
+# Ad Infinitum ClubApp – Phase 2 v0.5
 
-Neu:
-- echtes PostgreSQL-Setup
-- Login aus der Datenbank
-- Getränkekauf als sichere Transaktion
-- Guthabenaufladung mit Kassenprotokoll
-- Buchungshistorie pro Mitglied
+## Neu
+- Guthaben-Anfragen durch Mitglieder
+- Admin kann Anfragen freigeben oder ablehnen
+- Neue Mitglieder können angelegt werden
+- Buchungen und Kassenprotokoll in PostgreSQL
+- Zentraler Lagerbestand
 
 ## Start
-Backend:
-```bash
-cd backend
-npm install
-cp .env.example .env
-npm run db:setup
-npm run dev
-```
-
-Frontend:
-```bash
-cd frontend
-npm install
-npm run dev
-```
+1. `backend/.env.example` als `.env` kopieren.
+2. PostgreSQL-Zugang eintragen.
+3. Im Backend `npm install`, dann `npm run db:setup`, danach `npm run dev`.
+4. Im Frontend `npm install`, danach `npm run dev`.

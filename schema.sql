@@ -1,26 +1,49 @@
 CREATE TABLE IF NOT EXISTS users(
- id SERIAL PRIMARY KEY, username TEXT UNIQUE NOT NULL, password_hash TEXT NOT NULL,
- name TEXT NOT NULL, role TEXT NOT NULL DEFAULT 'member',
+ id SERIAL PRIMARY KEY,
+ username TEXT UNIQUE NOT NULL,
+ password_hash TEXT NOT NULL,
+ name TEXT NOT NULL,
+ role TEXT NOT NULL DEFAULT 'member',
  balance_cents INTEGER NOT NULL DEFAULT 0 CHECK(balance_cents>=0),
- member_number TEXT UNIQUE, bike TEXT, points INTEGER NOT NULL DEFAULT 0,
- active BOOLEAN NOT NULL DEFAULT TRUE, created_at TIMESTAMPTZ DEFAULT NOW()
+ member_number TEXT UNIQUE,
+ bike TEXT,
+ points INTEGER NOT NULL DEFAULT 0,
+ active BOOLEAN NOT NULL DEFAULT TRUE,
+ created_at TIMESTAMPTZ DEFAULT NOW()
 );
 CREATE TABLE IF NOT EXISTS drinks(
- id SERIAL PRIMARY KEY, name TEXT UNIQUE NOT NULL,
- price_cents INTEGER NOT NULL CHECK(price_cents>0),
- stock INTEGER NOT NULL DEFAULT 0 CHECK(stock>=0),
- min_stock INTEGER NOT NULL DEFAULT 0, emoji TEXT,
- sold INTEGER NOT NULL DEFAULT 0, active BOOLEAN NOT NULL DEFAULT TRUE
+ id SERIAL PRIMARY KEY,
+ name TEXT UNIQUE NOT NULL,
+ price_cents INTEGER NOT NULL,
+ stock INTEGER NOT NULL DEFAULT 0,
+ min_stock INTEGER NOT NULL DEFAULT 0,
+ emoji TEXT,
+ sold INTEGER NOT NULL DEFAULT 0,
+ active BOOLEAN NOT NULL DEFAULT TRUE
 );
 CREATE TABLE IF NOT EXISTS bookings(
- id SERIAL PRIMARY KEY, user_id INTEGER NOT NULL REFERENCES users(id),
- drink_id INTEGER NOT NULL REFERENCES drinks(id), drink_name TEXT NOT NULL,
- price_cents INTEGER NOT NULL, created_at TIMESTAMPTZ DEFAULT NOW()
+ id SERIAL PRIMARY KEY,
+ user_id INTEGER REFERENCES users(id),
+ drink_id INTEGER REFERENCES drinks(id),
+ drink_name TEXT NOT NULL,
+ price_cents INTEGER NOT NULL,
+ created_at TIMESTAMPTZ DEFAULT NOW()
 );
 CREATE TABLE IF NOT EXISTS ledger(
- id SERIAL PRIMARY KEY, user_id INTEGER NOT NULL REFERENCES users(id),
- type TEXT NOT NULL, amount_cents INTEGER NOT NULL, note TEXT,
- created_by INTEGER REFERENCES users(id), created_at TIMESTAMPTZ DEFAULT NOW()
+ id SERIAL PRIMARY KEY,
+ user_id INTEGER REFERENCES users(id),
+ type TEXT NOT NULL,
+ amount_cents INTEGER NOT NULL,
+ note TEXT,
+ created_by INTEGER REFERENCES users(id),
+ created_at TIMESTAMPTZ DEFAULT NOW()
 );
-CREATE INDEX IF NOT EXISTS idx_bookings_user ON bookings(user_id);
-CREATE INDEX IF NOT EXISTS idx_ledger_user ON ledger(user_id);
+CREATE TABLE IF NOT EXISTS topup_requests(
+ id SERIAL PRIMARY KEY,
+ user_id INTEGER REFERENCES users(id),
+ amount_cents INTEGER NOT NULL CHECK(amount_cents>0),
+ status TEXT NOT NULL DEFAULT 'pending',
+ approved_by INTEGER REFERENCES users(id),
+ created_at TIMESTAMPTZ DEFAULT NOW(),
+ approved_at TIMESTAMPTZ
+);
